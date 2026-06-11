@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
         required: [true, "Email is required to creating a user"],
         trim: true,
         lowercase: true,
-        match: [/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ /, "Invalid Email"],
+        match: [/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Invalid Email"],
         unique:[true,"Email already exist"]
     },
     name: {
@@ -32,7 +32,7 @@ userSchema.pre("save", async function (next) {
 
     const hash = await bcrypt.hash(this.password, 10)
     this.password = hash
-    return next()
+    return 
 
 })
 
