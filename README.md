@@ -4,9 +4,6 @@
 
 https://banking-system-lk9p.onrender.com/
 
-## GitHub Repository
-
-https://github.com/Priyanshu57005/Banking-System
 
 ## Overview
 
