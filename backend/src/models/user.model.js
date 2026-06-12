@@ -19,6 +19,12 @@ const userSchema = new mongoose.Schema({
         required: [true, "Password is required to creating an accound"],
         minlength:[6,"password should contain more that 6 character"],
         select: false
+    },
+    systemUser: {
+        type: Boolean,
+        default: false,
+        immutable: true,
+        select: false
     }
 },{
     timestamps: true
@@ -30,9 +36,8 @@ userSchema.pre("save", async function (next) {
         return next()
     }
 
-    const hash = await bcrypt.hash(this.password, 10)
-    this.password = hash
-    return 
+     this.password = await bcrypt.hash(this.password,10);
+    next(); 
 
 })
 
